@@ -1,0 +1,186 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-primary: #F5F0E3;
+    --bg-secondary: #FAF7EF;
+    --bg-card: #FFFDF8;
+    --olive-primary: #65734A;
+    --olive-dark: #4E5B38;
+    --olive-light: #87956A;
+    --olive-soft: #E7EBD9;
+    --text-primary: #262820;
+    --text-secondary: #696A5D;
+    --text-muted: #929286;
+    --border-color: #DDD8C9;
+    --status-success: #5F7650;
+    --status-warning: #B28A45;
+    --status-critical: #8A3838;
+  }
+
+  html.dark {
+    --bg-primary: #11130F;
+    --bg-secondary: #171A14;
+    --bg-card: #20251B;
+    --olive-primary: #9AA978;
+    --olive-dark: #758556;
+    --olive-light: #A8B884;
+    --olive-soft: #2D3325;
+    --text-primary: #F3EFE4;
+    --text-secondary: #C8C6B9;
+    --text-muted: #8E9182;
+    --border-color: #34382D;
+    --status-success: #789B66;
+    --status-warning: #CFA456;
+    --status-critical: #AB4848;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    transition: background-color 300ms ease, color 300ms ease, border-color 300ms ease;
+  }
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Theme helper classes */
+.bg-app {
+  background-color: var(--bg-primary);
+}
+
+.bg-surface {
+  background-color: var(--bg-secondary);
+}
+
+.bg-card-theme {
+  background-color: var(--bg-card);
+}
+
+.border-theme {
+  border-color: var(--border-color);
+}
+
+.text-theme-primary {
+  color: var(--text-primary);
+}
+
+.text-theme-secondary {
+  color: var(--text-secondary);
+}
+
+.text-theme-muted {
+  color: var(--text-muted);
+}
+
+.bg-olive-primary {
+  background-color: var(--olive-primary);
+}
+
+.bg-olive-dark {
+  background-color: var(--olive-dark);
+}
+
+.bg-olive-soft {
+  background-color: var(--olive-soft);
+}
+
+.text-olive-primary {
+  color: var(--olive-primary);
+}
+
+.text-olive-dark {
+  color: var(--olive-dark);
+}
+
+.border-olive-primary {
+  border-color: var(--olive-primary);
+}
+
+/* Smooth transitions for theme toggle and interactive components */
+.theme-transition {
+  transition: background-color 300ms ease, color 300ms ease, border-color 300ms ease, box-shadow 300ms ease;
+}
+
+/* Keyframes for subtle animations */
+@keyframes fadeInSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes subtlePulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes gentleShake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-4px); }
+  40%, 80% { transform: translateX(4px); }
+}
+
+.animate-fade-in {
+  animation: fadeInSlideUp 300ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-subtle-pulse {
+  animation: subtlePulse 2.4s ease-in-out infinite;
+}
+
+.animate-gentle-shake {
+  animation: gentleShake 350ms ease-in-out;
+}
+
+/* Card hover animation */
+.card-hover {
+  transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 220ms cubic-bezier(0.16, 1, 0.3, 1), border-color 220ms ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px -6px rgba(38, 40, 32, 0.08);
+}
+
+html.dark .card-hover:hover {
+  box-shadow: 0 8px 20px -6px rgba(0, 0, 0, 0.45);
+}
+
+/* Leaflet map custom overrides for clean civic styling */
+.leaflet-popup-content-wrapper {
+  background-color: var(--bg-card) !important;
+  color: var(--text-primary) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15) !important;
+  border: 1px solid var(--border-color) !important;
+  padding: 0 !important;
+  overflow: hidden;
+}
+
+.leaflet-popup-content {
+  margin: 0 !important;
+  line-height: 1.4 !important;
+}
+
+.leaflet-container {
+  font-family: inherit !important;
+  background-color: var(--bg-secondary) !important;
+}
+
+html.dark .leaflet-tile {
+  filter: brightness(0.7) invert(0.9) hue-rotate(180deg) saturate(0.4) contrast(1.1);
+}

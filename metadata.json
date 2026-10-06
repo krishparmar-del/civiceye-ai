@@ -1,0 +1,6 @@
+{
+  "name": "CivicEye AI",
+  "description": "AI-powered civic infrastructure monitoring and complaint-management platform connecting citizens with municipal authorities for prioritized civic issue resolution.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
